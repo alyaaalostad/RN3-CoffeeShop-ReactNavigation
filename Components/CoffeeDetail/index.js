@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-
+import CartIcon from "../CartIcon";
 // NativeBase Components
 import {
   Thumbnail,
@@ -43,7 +43,7 @@ class CoffeeDetail extends Component {
     const cafeId = this.props.navigation.getParam("cafeID");
     const cafees = cafes.find(cafe => cafeId === cafe.id);
     if (!cafes) return <Content />;
-    const cafe = cafes[0];
+    // const cafe = cafes[0];
     return (
       <Content>
         <List>
@@ -101,3 +101,11 @@ class CoffeeDetail extends Component {
 }
 
 export default observer(CoffeeDetail);
+CoffeeDetail.navigationOptions = ({ navigation }) => {
+  const cafeId = navigation.getParam("cafeID");
+  const cafees = cafes.find(cafe => cafeId === cafe.id);
+  return {
+    title: cafees.name,
+    headerRight: <CartIcon />
+  };
+};

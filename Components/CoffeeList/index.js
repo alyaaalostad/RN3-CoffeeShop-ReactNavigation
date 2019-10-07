@@ -5,6 +5,7 @@ import { observer } from "mobx-react";
 import { List, Content } from "native-base";
 
 //Components
+import CartIcon from "../CartIcon";
 import CoffeeItem from "./CoffeeItem";
 import {
   Container,
@@ -12,6 +13,7 @@ import {
   Left,
   Body,
   Right,
+  Text,
   Button,
   Icon,
   Title
@@ -31,9 +33,11 @@ const CoffeeList = () => {
   );
 };
 
-export default observer(CoffeeList);
-
-CoffeeList.navigationOptions = {
-  title: "Coffee List",
-  headerLeft: "shopping-cart"
+export default CoffeeList;
+CoffeeList.navigationOptions = () => {
+  return {
+    title: "Coffee List",
+    headLeft: null,
+    headerRight: <CartIcon />
+  };
 };

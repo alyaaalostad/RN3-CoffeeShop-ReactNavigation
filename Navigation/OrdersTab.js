@@ -1,15 +1,12 @@
 import { createStackNavigator } from "react-navigation-stack";
-import CoffeeList from "../Components/CoffeeList";
-import CoffeeDetail from "../Components/CoffeeDetail";
-import Login from "../Components/Login";
+
+import OrderHistory from "../Components/OrderHistory";
 import CoffeeCart from "../Components/CoffeeCart";
 
-const StackNav = createStackNavigator(
+const OrdersTab = createStackNavigator(
   {
-    ListScreen: CoffeeList,
-    DetailScreen: CoffeeDetail,
-    LoginScreen: Login,
-    CartScreen: CoffeeCart
+    CartScreen: CoffeeCart,
+    OrderScreen: OrderHistory
   },
   {
     initialRouteName: "LoginScreen",
@@ -23,4 +20,4 @@ const StackNav = createStackNavigator(
   }
 );
 
-export default StackNav;
+export default OrdersTab;
