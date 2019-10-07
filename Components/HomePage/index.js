@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View } from "react-native";
-
+import AppContainer from "../../Navigation";
 // NativeBase Components
 import { Container, Header } from "native-base";
 
@@ -18,7 +18,7 @@ const HomePage = () => {
     <Container style={styles.transparent}>
       <View style={styles.overlay} />
       <Header style={styles.transparent} />
-      <CoffeeDetail />
+      <AppContainer />
     </Container>
   );
 };

@@ -40,6 +40,8 @@ class CoffeeDetail extends Component {
   };
 
   render() {
+    const cafeId = this.props.navigation.getParam("cafeID");
+    const cafees = cafes.find(cafe => cafeId === cafe.id);
     if (!cafes) return <Content />;
     const cafe = cafes[0];
     return (
@@ -48,13 +50,13 @@ class CoffeeDetail extends Component {
           <ListItem style={styles.top}>
             <Left>
               <Text style={styles.text}>
-                {cafe.name + "\n"}
-                <Text note>{cafe.location}</Text>
+                {cafees.name + "\n"}
+                <Text note>{cafees.location}</Text>
               </Text>
             </Left>
             <Body />
             <Right>
-              <Thumbnail bordered source={{ uri: cafe.img }} />
+              <Thumbnail bordered source={{ uri: cafees.image }} />
             </Right>
           </ListItem>
           <ListItem style={{ borderBottomWidth: 0 }}>
@@ -85,7 +87,11 @@ class CoffeeDetail extends Component {
               </Picker>
             </Body>
           </ListItem>
-          <Button full danger>
+          <Button
+            full
+            danger
+            onPress={() => this.props.navigation.navigate("CartScreen")}
+          >
             <Text>Add</Text>
           </Button>
         </List>
