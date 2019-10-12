@@ -50,10 +50,18 @@ const Login = props => {
             </Form>
           </Body>
         </ListItem>
-        <Button full success onPress={() => navigation.replace("ListScreen")}>
+        <Button
+          full
+          success
+          onPress={() => navigation.replace("ProfileScreen")}
+        >
           <Text>Login</Text>
         </Button>
-        <Button full warning onPress={() => navigation.replace("ListScreen")}>
+        <Button
+          full
+          warning
+          onPress={() => navigation.replace("ProfileScreen")}
+        >
           <Text>Register</Text>
         </Button>
       </List>
